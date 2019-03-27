@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: product-server
+server:
+  port: 7002
+  servlet:
+    context-path: /product
+eureka:
+  client:
+    service-url:
+    #defaultZone 这个是不会提示的，此处需要自己写
+    #实际上属性应该是service-url,这个属性是个map（key-value）格式；当key是defaultZone的时候才能被解析；所以这里没有提示，
+    #但是自己还需要写一个defaultZone；
+      defaultZone: http://localhost:5060/eureka/eureka
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:7070/eureka/eureka
