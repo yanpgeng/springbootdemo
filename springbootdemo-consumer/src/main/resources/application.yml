@@ -1,19 +1,20 @@
 server:
   servlet:
-  #  ¶¨ÒåÏîÄ¿µÄ·ÃÎÊ·ÃÎÊÂ·¾¶
+  #  å®šä¹‰é¡¹ç›®çš„è®¿é—®è®¿é—®è·¯å¾„
     context-path: /consumer
-    #¶¨Òå¶Ë¿ÚºÅ
+    #å®šä¹‰ç«¯å£å·
   port: 7001
 spring:
-#  ÏÂÃæÊÇÎÒÕûºÏredisÊ¹ÓÃµÄÅäÖÃ£¬ÄãÃÇ´Ë´¦²»ĞèÒª
-#  redis:
-#    cluster:
-#      expire-seconds: 120
-#      command-timeout: 5000
-#      nodes:
-#  namenode22:6379,datanode23:6379,datanode24:6379,datanode25:6379,datanode26:6379,datanode27:6379
+  redis:
+    cluster:
+      #è®¾ç½®keyçš„ç”Ÿå­˜æ—¶é—´ï¼Œå½“keyè¿‡æœŸæ—¶ï¼Œå®ƒä¼šè¢«è‡ªåŠ¨åˆ é™¤ï¼›
+      expire-seconds: 120
+      #è®¾ç½®å‘½ä»¤çš„æ‰§è¡Œæ—¶é—´ï¼Œå¦‚æœè¶…è¿‡è¿™ä¸ªæ—¶é—´ï¼Œåˆ™æŠ¥é”™;
+      command-timeout: 5000
+      #è®¾ç½®redisé›†ç¾¤çš„èŠ‚ç‚¹ä¿¡æ¯ï¼Œå…¶ä¸­namenodeä¸ºåŸŸåè§£æï¼Œé€šè¿‡è§£æåŸŸåæ¥è·å–ç›¸åº”çš„åœ°å€;
+      nodes: namenode22:6379,datanode23:6379,datanode24:6379,datanode25:6379,datanode26:6379,datanode27:6379
   application:
-  #¶¨ÒåÓ¦ÓÃÃû³Æ£¬¼´·şÎñÃû³Æ
+  #å®šä¹‰åº”ç”¨åç§°ï¼Œå³æœåŠ¡åç§°
     name: consumer-server
 eureka:
   client:
