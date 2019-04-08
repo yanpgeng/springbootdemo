@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description: TODO
  * @date 2019/3/25-19:26
  */
-@Controller
+@RestController
 public class ProductController {
     @RequestMapping(value = "getProduct")
     public String getProduct() {

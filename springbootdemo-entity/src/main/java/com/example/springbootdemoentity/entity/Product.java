@@ -1,6 +1,10 @@
 package com.example.springbootdemoentity.entity;
 
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author YangPeng
  * @Title: Product
@@ -8,6 +12,7 @@ package com.example.springbootdemoentity.entity;
  * @Description: TODO
  * @date 2019/3/25-16:23
  */
+@Data
 public class Product {
 
     private String name;
@@ -22,7 +27,7 @@ public class Product {
         this.email = "6666.qq.com";
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
@@ -30,5 +35,5 @@ public class Product {
                 ", add='" + add + '\'' +
                 ", email='" + email + '\'' +
                 '}';
-    }
+    }*/
 }
