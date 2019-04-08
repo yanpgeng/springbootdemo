@@ -1,4 +1,4 @@
-package com.example.springbootdemoconsumer.redisConfig;
+package com.example.springbootdemoentity.redisConfig;
 
 
 /**

@@ -1,9 +1,9 @@
 package com.example.springbootdemoconsumer.controller;
 
 
-import com.example.springbootdemoconsumer.redisConfig.RedisConfig;
-import com.example.springbootdemoconsumer.redisConfig.RedisProperties;
-import com.example.springbootdemoconsumer.service.JedisClientCluster;
+import com.example.springbootdemoentity.redisConfig.JedisClientCluster;
+import com.example.springbootdemoentity.redisConfig.RedisConfig;
+import com.example.springbootdemoentity.redisConfig.RedisProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +31,8 @@ public class RedisController {
         System.out.println(redisProperties.toString());
         System.out.println(redisConfig.getJedisCluster().getClusterNodes());
         System.out.println(jedisClientCluster.get("yp"));
-        jedisClientCluster.set("12","12");
+        jedisClientCluster.set("12","yangpeng");
+        jedisClientCluster.set("121212","yangpeng");
         System.out.println(jedisClientCluster.get("12"));
         return jedisClientCluster.get("12");
     }

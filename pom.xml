@@ -16,6 +16,12 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+    <modules>
+        <module>springbootdemo-entity</module>
+        <module>springbootdemo-consumer</module>
+        <module>springbootdemo-product</module>
+        <module>springbootdemo-eureka</module>
+    </modules>
     <!--
         <dependencies>
             <dependency>

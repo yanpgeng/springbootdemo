@@ -1,4 +1,4 @@
-package com.example.springbootdemoconsumer.redisConfig;
+package com.example.springbootdemoentity.redisConfig;
 
 
 import org.springframework.boot.context.properties.ConfigurationProperties;

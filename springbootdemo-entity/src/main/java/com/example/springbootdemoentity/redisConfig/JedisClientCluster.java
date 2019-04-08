@@ -1,9 +1,7 @@
-package com.example.springbootdemoconsumer.service;
+package com.example.springbootdemoentity.redisConfig;
 
 
-import com.example.springbootdemoconsumer.redisConfig.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.JedisCluster;
 
