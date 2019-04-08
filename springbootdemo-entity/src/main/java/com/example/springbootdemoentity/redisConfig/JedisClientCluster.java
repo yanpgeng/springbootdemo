@@ -61,4 +61,9 @@ public class JedisClientCluster implements JedisClient {
     public Long hdel(String key, String... field) {
         return jedisCluster.hdel(key, field);
     }
+
+    @Override
+    public void setx(String key, int seconds, String value) {
+        jedisCluster.setex(key,seconds,value);
+    }
 }
