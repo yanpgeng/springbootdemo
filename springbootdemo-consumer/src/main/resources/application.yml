@@ -1,4 +1,4 @@
 #spring.profiles.active表示启用哪一个配置文件，并且可以同时配置多个配置文件，同时启用多个配置文件
 spring:
   profiles:
-    active: dev,uat
+    active: dev
