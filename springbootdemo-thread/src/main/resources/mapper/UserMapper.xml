@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootdemothread.dao.UserMapper">
+    <select id="getUser" resultType="com.example.springbootdemoentity.entity.User"
+            parameterType="String" statementType="STATEMENT">
+        select
+        host as "host",
+        user as "username"
+       from user
+       where user = 'root'
+    </select>
+    <select id="getPageUser" resultType="com.example.springbootdemoentity.entity.User">
+        select
+        host as "host",
+        user as "username"
+       from user
+    </select>
+</mapper>
