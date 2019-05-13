@@ -25,7 +25,7 @@ public class ProductController {
 
     @RequestMapping(value = "/home")
     public String home(){
-        System.out.println("123");
+        System.out.println("123111");
         throw new MyException("101","错误");
     }
 }
