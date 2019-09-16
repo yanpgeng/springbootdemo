@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 
 @RestController
 public class UserController {
@@ -59,7 +61,9 @@ public class UserController {
 //            executorService.submit(new ThreadEntity(i));
                 executorService.submit(new ThreadEntity2(i,userService, concurrentHashMap, countDownLatch));
 //            }
-
+            String a = "";
+            String b = "";
+            a.equals(b);
             countDownLatch.await(100, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();

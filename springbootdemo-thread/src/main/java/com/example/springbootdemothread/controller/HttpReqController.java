@@ -35,4 +35,13 @@ public class HttpReqController {
             //System.out.println("开启第"+i+"个线程");
         }
     }
+
+    public static void main(String[] args) {
+        double a = 50.0;
+        if(a>=100){
+            System.out.println(a);
+        }else{
+            System.out.println("j; a ");
+        }
+    }
 }

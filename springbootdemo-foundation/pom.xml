@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>springbootdemo-test</artifactId>
+    <artifactId>springbootdemo-foundation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springbootdemo-test</name>
-    <description>Demo project for Spring Boot</description>
+    <name>springbootdemo-foundation</name>
+    <description>java foundation module</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -23,14 +23,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.4</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>tools</artifactId>
+            <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

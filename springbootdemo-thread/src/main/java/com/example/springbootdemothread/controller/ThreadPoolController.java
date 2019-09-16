@@ -51,7 +51,6 @@ public class ThreadPoolController {
     public String threadTestDemo(HttpServletResponse response, int i) {
         ConcurrentHashMap<String, User> con = new ConcurrentHashMap<>();
         CountDownLatch countDownLatch = new CountDownLatch(1);
-//        UserService userService = new UserService();
         try {
             executorService.submit(new ThreadEntity2(i, userMapper, con, countDownLatch));
             countDownLatch.await();
