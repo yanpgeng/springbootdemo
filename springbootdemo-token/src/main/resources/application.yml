@@ -1,0 +1,14 @@
+server:
+  port: 7006
+  servlet:
+    context-path: /token
+eureka:
+  client:
+    service-url:
+        defaultZone: http://localhost:5060/eureka/eureka
+spring:
+    redis:
+      cluster:
+        expire-seconds: 120
+        command-timeout: 5000
+        nodes: namenode22:6379,datanode23:6379,datanode24:6379,datanode25:6379,datanode26:6379,datanode27:6379
