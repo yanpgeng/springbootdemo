@@ -1,0 +1,25 @@
+jdk动态代理（底层动态生成代理类和编译过程）
+相关API：
+1、Java 编译API：
+    JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+2、Invocationhandler（接口）：
+    该接口是proxy代理实例的 调用处理程序实现的一个接口，每个proxy代理实例都有一个关联的调用处理程序；在代理实例调用方法时，
+    方法调用被编码分配到调用处理程序的invoke方法。
+3、Proxy类：
+    该类就是用来创建一个代理对象的类，它提供了很多方法，但是我们最常用的是newProxyInstance方法；该方法有三个参数,具体如下：
+    1）、ClassLoader loader:一个ClassLoader对象，定义了由哪个classloader对象生成的代理类进行加载；
+    2）、 Class<?>[] interfaces：一个interfaces对象数组，表示我们将要给我们的代理对象提供一组什么样的接口，如果我们提供了这样的一个接口对象数组，
+    那么也就是声明了代理类实现了这些接口，代理类就可以调用接口中声明的所有方法；
+    3）、InvocationHandler h:一个Invocationhandler对象，表示的是当动态代理对象调用方法的时候会关联到哪一个Invocationhandler对象上，
+    并最终由其调用；
+4、代理过程：
+    1、定义一个接口：Moveable，接口中有方法：move();
+    2、实现接口的目标类（它要被代理）；
+    3、定义一个处理器TimeHandler,重载构造方法，重写invoke函数，添加自己的处理逻辑；
+    4、代理逻辑实现过程编写：
+        1）、获取接口方法；
+        2）、获取需要动态生成的代理对象的目录；
+        3）、生成对应的代理文件$Proxy.java文件；
+        4、执行动态编译过程，生成$Proxy.class文件；
+        5）、加载生成的$Proxy.calss到内存中（执行对象的声明周期）；
+        6）、返回生成对象的引用；
