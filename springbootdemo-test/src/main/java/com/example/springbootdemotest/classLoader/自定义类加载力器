@@ -1,0 +1,66 @@
+JVM知识点划分：
+一、class文件结构
+二、classloader
+三、JVM运行时候数据区；
+四、垃圾回收器和垃圾回收算法；
+五、jit；
+
+
+二、类加载
+2.1、在Java代码中，类型的加载、链接、初始化过程都是在程序运行期间完成的；
+    2.1.1、类型的加载————这里的类型是指的什么？
+        答：类型就是指的我们Java源代码通过编译后的class文件；
+    2.1.2、类型的来源有哪些？
+        答：本地磁盘、网络下载.class文件、war、jar下加载.class文件、从专门的数据库中读取class文件（少见）
+            将Java源文件动态编译成class文件：典型的代表是动态代理——通过运行期生成class文件；jsp会被转
+            换成servlet，而我们的servlet是一个Java文件，会被编译成class文件；
+    2.1.3、通过类加载器来进行加载，加载到加载到方法区（元空间）；
+    2.1.4、类加载器都有哪些？
+        1）、启动类加载器：通过C语言实现；
+        2）、扩展类加载器：通过Java语言实现；
+        3）、系统（APP类加载器）类加载器：Java语言实现的；
+        4）、用户级别的：自定义的类加载器（继承ClasssLoader）；
+    2.1.5、类加载器的加载机制：双亲委派模型——自底向上检查，自顶向下加载；
+        Launcher源码中可以看到：ExcClassLoader会作为父类被传递给appClassLoader；
+2.2、在什么时候会触发类的初始化（执行类的静态代码块）？
+    1）、get static：调用类的静态方法；
+    2）、invokeStatic：
+    3）、main方法；
+    4）、new 指令；
+    5）、class.forName()反射；
+    6）、子类的初始化一定会触发我们的父类的初始化
+    初始化一定会有类加载过程；类加载过程不一定有初始化；
+2.3、如何编写自定义类加载器？
+    1）、写一个loadClassData():把.class文件变成byte数组；
+    2）、重写我们的findClass(){
+             loaderClassDate();
+             defineClass();
+    }
+    官网demo如下：
+     * class NetworkClassLoader extends ClassLoader {
+     *         String host;
+     *         int port;
+     *          //红鞋
+     *         public Class findClass(String name) {
+     *             byte[] b = loadClassData(name);
+     *             return defineClass(name, b, 0, b.length);
+     *         }
+     *
+     *         private byte[] loadClassData(String name) {
+     *             // load the class data from the connection
+     *             &nbsp;.&nbsp;.&nbsp;.
+     *         }
+     *     }
+
+2.4、不同的类加载器加载相同的类，则两个类加载器加载的类无法进行相互转换；
+    原因：不同的类加载器有不同的命名空间；
+    类加载器的命名空间：是具有类加载器本身以及所有父加载器所加载出来的binary name（full class name） 组成；
+    1）、在同一个二明明空间里，不允许出现2个完全一样的binary name。
+    2）、在不同的命名空间中，可以出现2个相同的binary name。但是二者对应的class对象是相互不能感知到的，也就是说class对象的类型是不一样的；
+    3）、子加载器的命名空间站中的binary name对应的类中可以访问父加载器命名空间中binary name 对应的类，反之不行；
+
+2.5、双亲委派模型的好处；
+    1）、如果我们的Object类被自定义的classloader加载，name内存中会出现多个object对象，且这个对象是无法相互转换的，这是一个非常危险的事情；
+
+2.6、如何打破双亲委派模型？
+   SPI：
